@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  --main: #EDC9FA;
+  --main-dark: #C490E0;
+  --main-deep: #2D1B3D;
+  --secondary: #50F2FF;
+  --accent-glow: #B8F0FF;       /* soft cyan glow */
+  --cream: #FDF8FF;
+  --warm-cream: #FFF9F5;
+  --text: #323233;
+  --text-secondary: #535353;
+  --text-muted: #8A8A8A;
+  --text-on-dark: #F5F0F8;
+  --border: #E8E0EE;
+}
+
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #323233;
+}
+
+html { scroll-behavior: smooth; }
+
+::selection { background-color: #EDC9FA; color: #2D1B3D; }
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  overflow-x: hidden;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(196,144,224,0.3); border-radius: 3px; }
+html { scrollbar-width: thin; scrollbar-color: rgba(196,144,224,0.3) transparent; }
+
+/* ─── Gradient text ─── */
+.gradient-text {
+  background: linear-gradient(135deg, #EDC9FA 0%, #50F2FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Section themes ─── */
+.section-dark {
+  background: var(--main-deep);
+  color: var(--text-on-dark);
+}
+
+.section-cream { background: var(--cream); }
+
+/* ─── Hero ─── */
+.hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(45, 27, 61, 0.70) 0%,
+    rgba(45, 27, 61, 0.40) 40%,
+    rgba(196, 144, 224, 0.15) 100%
+  );
+}
+
+/* ─── Vibrant gradient mesh backgrounds (ARMRA-style) ─── */
+.gradient-mesh-1 {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(237,201,250,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(80,242,255,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(237,201,250,0.10) 0%, transparent 50%),
+    #ffffff;
+}
+
+.gradient-mesh-2 {
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(80,242,255,0.20) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 70%, rgba(237,201,250,0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(184,240,255,0.12) 0%, transparent 40%),
+    #FDF8FF;
+}
+
+.gradient-mesh-dark {
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(237,201,250,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 70%, rgba(80,242,255,0.06) 0%, transparent 50%),
+    var(--main-deep);
+}
+
+/* ─── Vibrant blob accents ─── */
+.blob-lavender {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(237,201,250,0.4) 0%, rgba(237,201,250,0) 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.blob-cyan {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(80,242,255,0.3) 0%, rgba(80,242,255,0) 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* ─── Image placeholder with gradient ─── */
+.img-placeholder {
+  background: linear-gradient(
+    135deg,
+    rgba(237,201,250,0.12) 0%,
+    rgba(80,242,255,0.08) 50%,
+    rgba(237,201,250,0.15) 100%
+  );
+}
+
+/* ─── FAQ ─── */
+details summary::-webkit-details-marker { display: none; }
+details summary { list-style: none; }
+details[open] summary { border-color: var(--main); background: var(--cream); }
+details > div { animation: fadeSlideIn 0.3s ease-out; }
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Press logo strip ─── */
+.press-strip img {
+  filter: grayscale(100%) brightness(0.4);
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+.press-strip img:hover {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+}
